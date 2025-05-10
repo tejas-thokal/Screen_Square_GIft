@@ -1,0 +1,25 @@
+.footer{
+    background-color: #002b45 !important;
+}
+
+.fot-container{
+    width: 100% !important;
+}
+
+.fot-container3{
+    display:  flex !important;
+    flex-direction: row;
+    justify-content:space-around !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+    margin-left: 4em;
+}
+
+.container2 img{
+    width: 12em  !important;
+}
+
+.list-unstyled li{
+     list-style-type: disc;
+     padding-left: 20px;
+}
