@@ -55,4 +55,43 @@
   color: #494949;
   text-align: center;
   font-weight: 600;
+  text-decoration: none;
 }
+
+
+.category-item a {
+  text-decoration: none; 
+}
+
+.category-item p {
+  font-size: 1.5rem;  /* Adjust as needed */
+  margin-top: 10px;    /* Adds space between image and product name */
+  text-align: center;  /* Aligns text in the center */
+}
+
+.shop-btn {
+  background-color: #25d366; /* WhatsApp green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 12px;
+  border-radius: 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+.shop-btn:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.05);
+}
+
+/* Optional: ensure the button is centered inside the card */
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

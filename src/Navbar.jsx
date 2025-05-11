@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.png";
+import { useState } from "react"; // Import React's useState hook
 import "./Navbar.css"; // Ensure it has styles for both navbar and sidebar
 import "./Sidebar.css"; // Optional: if you had sidebar styles separate
 
 export default function NavbarWithSidebar() {
+    const [isNavOpen, setIsNavOpen] = useState(false); // Track the navbar state
+
+    // Toggle the navbar on and off
+    const handleNavbarToggle = () => {
+        setIsNavOpen(!isNavOpen); // Toggle the navbar state
+    };
+
     return (
         <div className="d-flex">
             {/* Sidebar */}
@@ -23,14 +31,24 @@ export default function NavbarWithSidebar() {
 
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg bg-body-tertiary w-100">
-                <div className="container-fluid">
-                    <div className="container">
-                        <Link className="navbar-brand" to="/">
-                            <img src={logo} alt="Screen Square" width="20" height="50" />
-                        </Link>
-                    </div>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav d-flex flex-row gap-4 me-auto mb-2 mb-lg-0">
+                <div className="container-fluid ">
+                    <Link className="navbar-brand" to="/">
+                        <img src={logo} alt="Screen Square" className="navbar-logo"/>
+                    </Link>
+
+                    {/* TOGGLE BUTTON */}
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        onClick={handleNavbarToggle} // Handle click manually
+                        aria-expanded={isNavOpen ? "true" : "false"} // Update aria-expanded based on state
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    {/* COLLAPSIBLE CONTENT */}
+                    <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarSupportedContent">
+                        <ul className="navbar-nav d-flex flex-row gap-4 mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className="nav-link active" to="/">Home</Link>
                             </li>
@@ -44,7 +62,7 @@ export default function NavbarWithSidebar() {
                                 <Link className="nav-link" to="/contact">Contact Us</Link>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
+                        <form className="d-flex rside" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search..." aria-label="Search" />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                         </form>

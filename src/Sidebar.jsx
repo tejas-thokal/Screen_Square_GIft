@@ -15,7 +15,7 @@ export default function Sidebar() {
                         about your <span>brand</span>
                     </p>
                     <h1>Your One-Stop Solution for <br /> Custom
-Corporate Printing and <br /> Branding Needs.</h1>
+Corporate Printing and  Branding Needs.</h1>
                     <button>Customize Your Product</button>
       </div>
     </div>

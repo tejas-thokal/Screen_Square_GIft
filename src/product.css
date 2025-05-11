@@ -146,78 +146,74 @@
 }
 
 /* Medium screens (tablets) */
-@media screen and (max-width: 1024px) {
+/* Responsive layout for tablets and smaller screens */
+@media only screen and (max-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center !important;
+    margin: 2em 1em;
+    gap: 20px;
+    width: 120%;
   }
 
   .product-card {
-    flex-direction: column !important;
+    flex-direction: column !important; /* Reset any row/row-reverse for consistency */
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .product-card .right,
+  .product-card .left {
+    width: 100%;
+  }
+
+  .right {
+    padding: 1em 0;
+  }
+
+  .left {
     align-items: center;
     text-align: center;
-  }
-
-  .left, .right {
-    width: 100% !important;
     margin: 0;
+    padding: 0 1em;
   }
 
   .left h1 {
-    font-size: 1.4em;
+    font-size: 2em !important;  /* Increased from 1.5em */
+    font-weight: bold;
+    margin-bottom: 0.5em;
   }
 
   .left p {
-    font-size: 1em;
+    font-size: 1.5em !important;
   }
 
   .shop-btn {
-    font-size: 1em;
-  }
-}
-
-/* Small screens (phones) */
-@media screen and (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-    margin: 1em;
-    gap: 1.5em;
-  }
-
-  .product-card {
-    padding: 15px;
-  }
-
-  .left h1 {
-    font-size: 1.2em;
-  }
-
-  .left p {
-    font-size: 0.95em;
-  }
-
-  .shop-btn {
-    font-size: 0.9em;
-    padding: 0.6em 1.2em;
-  }
-}
-
-/* Extra small screens */
-@media screen and (max-width: 480px) {
-  .left h1 {
+    width: 125% !important;
+    margin: 1em auto;
     font-size: 1em;
   }
 
-  .left p {
-    font-size: 0.85em;
+  /* Ensure all images scale nicely */
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
-  .shop-btn {
-    font-size: 0.8em;
-    padding: 0.5em 1em;
-  }
-
-  .right img {
-    max-height: 150px;
+  /* Optional: standardize heights */
+  .tshirt,
+  .mug,
+  .hoodie,
+  .bottle,
+  .cap,
+  .flaskset,
+  .wallet,
+  .Set {
+    height: auto !important;
+    grid-column: span 1 !important;
   }
 }

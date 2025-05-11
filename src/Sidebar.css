@@ -85,41 +85,41 @@
 
 /* Media query for mobile view (max-width: 768px) */
 @media only screen and (max-width: 768px) {
-  .sidebar {
-    display: none !important;
-    width: 0 !important;
-    padding: 0 !important;
-    overflow: hidden;
-  }
 
   .main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-top: 4em;
+    height: 50%;
+    width: 100%;
   }
 
-  .left {
+  .left1 {
     width: 100%;
     margin-top: 0;
     text-align: center;
   }
 
-  .left img {
-    width: 100%;
-    margin-bottom: 20px;
+  .left1 img {
+    width: 28em;
+    margin-left: 0 !important;
+    margin-right: 2em !important;
   }
 
-  .right {
+  .right2 {
     width: 100%;
     text-align: center;
-    padding-bottom: 10em;
+    padding-bottom: 4em;
+    margin-left: 6em;
   }
 
-  .right p {
-    font-size: 2em;
+  .right2 p {
+    font-size: 3em;
   }
 
-  .right button {
+  .right2 button {
     width: 80%;
     padding: 15px 2em;
     font-size: 18px;

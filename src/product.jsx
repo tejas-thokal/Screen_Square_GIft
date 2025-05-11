@@ -1,6 +1,6 @@
 import "./product.css";
 import tshirt from "./assets/combine.png";
-import Mug from "./assets/mug.png";
+import Mug from "./assets/mug4.png";
 import Hoodie from "./assets/hoodie.png";
 import Flaskset from "./assets/flaskset.png";
 import Cap from "./assets/cap.png";
@@ -24,7 +24,7 @@ export default function Product() {
   // WhatsApp link generation function
   const generateWhatsAppLink = (productName) => {
     const phoneNumber = "9923660003"; // Your WhatsApp phone number
-    const message = `Hello!%20I'm%20interested%20in%20buying%20the%20${encodeURIComponent(productName)}%20from%20your%20store.`;
+    const message = `Hello!%20I'm%20interested%20in%20buying%20the%20*${encodeURIComponent(productName)}*%20from%20your%20store.`;
     return `https://wa.me/${phoneNumber}?text=${message}`;
   };
 

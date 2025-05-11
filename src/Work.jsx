@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Work.css";
 import RoundNeck_Blue from "./assets/roundneck_black.jpg";
 import Hoodie1 from "./assets/Hoodie1.jpg";
@@ -21,26 +22,25 @@ import Shirt1 from "./assets/Shirt1.jpg";
 import Apron1 from "./assets/Apron1.jpg";
 
 const products = [
-  { image: RoundNeck_Blue, name: "T-Shirts", link: "t-shirt.html" },
-  { image: Hoodie1, name: "Hoodies", link: "hoodies.html" },
-  { image: Mug1, name: "Mugs", link: "mug.html" },
-  { image: Leather1, name: "Leather Combos", link: "leather_product.html" },
-  { image: Pen1, name: "Pens", link: "pen.html" },
-  { image: "/Screen_Square/images/combo.jpg", name: "Combos", link: "combo.html" },
-  { image: Plate1, name: "PavBhaji Plates", link: "steel_plate.html" },
-  { image: Cap1, name: "Caps", link: "hat.html" },
-  { image: PhoneStand1, name: "Mobile Stands", link: "phone_stand.html" },
-  { image: FlaskSet1, name: "Vacuum Flask Sets", link: "vacuum_flaskset.html" },
-  { image: Pillow1, name: "Pillows", link: "pillow.html" },
-  { image: Tiffin1, name: "Tiffins", link: "tiffin.html" },
-  { image: Pouch1, name: "Pouches", link: "pouch.html" },
-  { image: CardHolder1, name: "Card holders", link: "card_holder.html" },
-  { image: Apron1, name: "Aprons", link: "apron-product.html" },
-  { image: Keychain1, name: "Keychains", link: "keychain.html" },
-  { image: Shirt1, name: "Shirts", link: "shirt.html" },
-  { image: Labcoat1, name: "Lab Coats", link: "coat.html" },
-  { image: Wallet1, name: "Wallets", link: "wallet-product.html" },
-  { image: Bottle1, name: "Bottles", link: "bottle.html" },
+  { image: RoundNeck_Blue, name: "T-Shirts", link: "/product/t-shirt" },
+  { image: Hoodie1, name: "Hoodies", link: "/product/hoodies" },
+  { image: Mug1, name: "Mugs", link: "/product/mugs" },
+  { image: Leather1, name: "Leather Combos", link: "/product/leather" },
+  { image: Pen1, name: "Pens", link: "/product/pen" },
+  { image: Bottle1, name: "Bottles", link: "/product/bottle" },
+  { image: Cap1, name: "Caps", link: "/product/cap" },
+  { image: PhoneStand1, name: "Mobile Stands", link: "/product/phone-stand" },
+  { image: FlaskSet1, name: "Vacuum Flask Sets", link: "/product/flaskset" },
+  { image: Pillow1, name: "Pillows", link: "/product/pillow" },
+  { image: Tiffin1, name: "Tiffins", link: "/product/tiffin" },
+  { image: Pouch1, name: "Pouches", link: "/product/pouch" },
+  { image: CardHolder1, name: "Card holders", link: "/product/cardholder" },
+  { image: Apron1, name: "Aprons", link: "/product/apron" },
+  { image: Keychain1, name: "Keychains", link: "/product/keychain" },
+  { image: Shirt1, name: "Shirts", link: "/product/shirt" },
+  { image: Labcoat1, name: "Lab Coats", link: "/product/labcoat" },
+  { image: Wallet1, name: "Wallets", link: "/product/wallet" },
+  { image: Plate1, name: "Plates", link: "/product/plate" },
 ];
 
 const Products = () => {
@@ -57,13 +57,11 @@ const Products = () => {
 
       <div className="categories">
         {products.map((product, index) => (
-          <div
-            className="category-item"
-            key={index}
-            onClick={() => (window.location.href = product.link)}
-          >
-            <img src={product.image} alt={product.name} />
-            <p>{product.name}</p>
+          <div className="category-item" key={index}>
+            <Link to={product.link}>
+              <img src={product.image} alt={product.name} />
+              <p>{product.name}</p>
+            </Link>
           </div>
         ))}
       </div>

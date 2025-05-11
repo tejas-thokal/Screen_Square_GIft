@@ -7,7 +7,9 @@ import Footer from "./Footer.jsx";
 import Skills from "./Skills.jsx";
 import ReviewSlider from "./Reviews.jsx";
 import Work from "./Work.jsx";
-import Contact from "./Contact_Us.jsx"
+import Contact from "./Contact_Us.jsx";
+import ProductDetail from "./ProductDetail.jsx";
+import About from "./About_US.jsx";
 
 export default function App() {
   return (
@@ -45,6 +47,17 @@ export default function App() {
           <Footer/>
           </>
         }/>
+        <Route
+        path="/about"
+        element={
+          <>
+          <Navbar/>
+          <About/>
+          <Footer/>
+          </>
+        }/>
+        <Route path="/" element={<Work />} />
+        <Route path="/product/:name" element={<><ProductDetail /><Footer/></>} />
       </Routes>
     </Router>
   );

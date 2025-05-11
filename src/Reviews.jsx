@@ -33,7 +33,7 @@ const ReviewSlider = () => {
               key={reviews[index].image}
               src={reviews[index].image}
               alt={`Review ${index + 1}`}
-              className="absolute w-full h-full object-cover rounded-lg"
+              className="motion-img absolute w-full h-full object-cover rounded-lg"
               initial={{ x: 300, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -300, opacity: 0 }}

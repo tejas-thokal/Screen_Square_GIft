@@ -27,3 +27,34 @@
 .list-unstyled li:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    .fot-container3 {
+        flex-direction: column !important;
+        align-items: center;
+        margin-left: 0;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .fot-container3 > div {
+        width: 100% !important;
+        max-width: 90%;
+    }
+
+    .container2 img {
+        width: 8em !important;
+        margin-bottom: 1rem;
+    }
+
+    .list-unstyled li {
+        padding-left: 0;
+        list-style-position: inside;
+    }
+
+    footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 133% !important;
+    }
+}

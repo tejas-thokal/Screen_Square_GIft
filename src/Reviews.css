@@ -26,3 +26,36 @@
   height: 100%;
   border-radius: 0.75rem;
 }
+
+@media (max-width: 768px) {
+  .inner {
+    height: 200px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .inner2 {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .outer h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  .motion-img,
+  .inner2 img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .review-text {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+    margin-top: 0.5rem;
+  }
+}
