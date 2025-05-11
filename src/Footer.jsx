@@ -1,31 +1,32 @@
 import "./footer.css";
 import logo from "./assets/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
         <footer className="bg-dark footer text-white py-4 mt-5">
-            <div className=" text-center text-md-start">
-                <div className=" row g-4">
+            <div className="text-center text-md-start">
+                <div className="row g-4">
                     <div className="fot-container3">
                         <div className="col-md-3 mb-4 container2">
-                        <img src={logo} alt="Screen Square" className="img-fluid" />
-                    </div>
-                    <div className="col-md-3 mb-4">
-                        <h5>About Us</h5>
-                        <p>We provide customizable <br /> products for gifts and events.</p>
-                    </div>
-                    <div className="col-md-3 mb-4">
-                        <h5>Quick Links</h5>
-                        <ul className="list-unstyled">
-                            <li><a href="#" className="text-white">Home</a></li>
-                            <li><a href="#" className="text-white">Products</a></li>
-                            <li><a href="#" className="text-white">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div className="col-md-3 mb-4">
-                        <h5>Contact</h5>
-                        <p>Email: info@screensquaregifts.com <br />Phone: +91 9923660003</p>
-                    </div>
+                            <img src={logo} alt="Screen Square" className="img-fluid" />
+                        </div>
+                        <div className="col-md-3 mb-4">
+                            <h5>About Us</h5>
+                            <p>We provide customizable <br /> products for gifts and events.</p>
+                        </div>
+                        <div className="col-md-3 mb-4">
+                            <h5>Quick Links</h5>
+                            <ul className="list-unstyled">
+                                <li><Link className="nav-link active" to="/">Home</Link></li>
+                                <li><Link className="nav-link" to="/products">Product</Link></li>
+                                <li><Link className="nav-link" to="/contact">Contact Us</Link></li>
+                            </ul>
+                        </div>
+                        <div className="col-md-3 mb-4">
+                            <h5>Contact</h5>
+                            <p>Email: info@screensquaregifts.com <br />Phone: +91 9923660003</p>
+                        </div>
                     </div>
                 </div>
                 <div className="text-center pt-3 border-top mt-3">

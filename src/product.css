@@ -109,6 +109,7 @@
 
 /* On hover, scale the image */
 .product-card:hover .right img {
+  filter: drop-shadow(0 0 15px rgba(247, 248, 248, 0.7));
   transform: scale(1.1);
 }
 
@@ -142,4 +143,81 @@
 
 .shop-btn:hover {
   background-color: #e62e2e;
+}
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 2em;
+  }
+
+  .product-card {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .left, .right {
+    width: 100% !important;
+    margin: 0;
+  }
+
+  .left h1 {
+    font-size: 1.4em;
+  }
+
+  .left p {
+    font-size: 1em;
+  }
+
+  .shop-btn {
+    font-size: 1em;
+  }
+}
+
+/* Small screens (phones) */
+@media screen and (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    margin: 1em;
+    gap: 1.5em;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .left h1 {
+    font-size: 1.2em;
+  }
+
+  .left p {
+    font-size: 0.95em;
+  }
+
+  .shop-btn {
+    font-size: 0.9em;
+    padding: 0.6em 1.2em;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  .left h1 {
+    font-size: 1em;
+  }
+
+  .left p {
+    font-size: 0.85em;
+  }
+
+  .shop-btn {
+    font-size: 0.8em;
+    padding: 0.5em 1em;
+  }
+
+  .right img {
+    max-height: 150px;
+  }
 }

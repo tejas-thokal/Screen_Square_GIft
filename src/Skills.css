@@ -7,6 +7,11 @@
     margin-left: 4em;
     margin-top: 2em;
     margin-bottom: 8em;
+    margin-right: 1.5em;
+}
+
+.skill-item img:hover{
+    transform: scale(1.05);
 }
 
 .skill-item {
@@ -18,7 +23,12 @@
     width: 100%; 
     height: 100%;  
     object-fit: cover;
-    border-radius: 2em; 
+    border-radius: 2em;
+    transition: transform 0.3s; 
+}
+
+.skill-item h3{
+    margin-top: 1em;
 }
 
 .box{

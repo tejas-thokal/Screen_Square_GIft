@@ -6,6 +6,7 @@
 .sidebar{
     background-color: #002b45 !important;
     position: fixed;
+    z-index: 988;
     
 }
 .sidebar-icon {
@@ -64,6 +65,10 @@
 
 .right2 p{
   font-size: 2.75em;
+}
+
+.right2 h1{
+  font-size: 1.4em;
 }
 
 .right2 p span{
