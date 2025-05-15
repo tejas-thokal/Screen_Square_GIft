@@ -14,29 +14,26 @@ export default function NavbarWithSidebar() {
 
     return (
         <div className="d-flex">
-            {/* Sidebar */}
             <div className="bg-dark sidebar text-white d-flex flex-column align-items-center py-4"
-                style={{ width: '3em', minHeight: '100vh' }}>
-                <a href="#" className="sidebar-icon"><i className="fas fa-tshirt"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-tshirt"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-mug-hot"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-wine-bottle"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-pen"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-utensils"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-book"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-hat-cowboy"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-key"></i></a>
-                <a href="#" className="sidebar-icon"><i className="fas fa-wallet"></i></a>
+            style={{ width: '3em', minHeight: '100vh' }}>
+                <Link to="#" className="sidebar-icon"><i className="fas fa-tshirt"></i></Link>
+                <Link to="/product/t-shirt" className="sidebar-icon"><i className="fas fa-tshirt"></i></Link>
+                <Link to="/product/mugs" className="sidebar-icon"><i className="fas fa-mug-hot"></i></Link>
+                <Link to="/product/bottle" className="sidebar-icon"><i className="fas fa-wine-bottle"></i></Link>
+                <Link to="/product/pen" className="sidebar-icon"><i className="fas fa-pen"></i></Link>
+                <Link to="/product/plate" className="sidebar-icon"><i className="fas fa-utensils"></i></Link>
+                <Link to="/product/book" className="sidebar-icon"><i className="fas fa-book"></i></Link>
+                <Link to="/product/cap" className="sidebar-icon"><i className="fas fa-hat-cowboy"></i></Link>
+                <Link to="/product/keychain" className="sidebar-icon"><i className="fas fa-key"></i></Link>
+                <Link to="/product/wallet" className="sidebar-icon"><i className="fas fa-wallet"></i></Link>
             </div>
 
-            {/* Navbar */}
             <nav className="navbar navbar-expand-lg bg-body-tertiary w-100">
                 <div className="container-fluid ">
-                    <Link className="navbar-brand" to="/">
+                        <Link className="navbar-brand" to="/">
                         <img src={logo} alt="Screen Square" className="navbar-logo"/>
                     </Link>
 
-                    {/* TOGGLE BUTTON */}
                     <button
                         className="navbar-toggler"
                         type="button"

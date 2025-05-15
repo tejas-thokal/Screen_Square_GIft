@@ -8,8 +8,9 @@ import Skills from "./Skills.jsx";
 import ReviewSlider from "./Reviews.jsx";
 import Work from "./Work.jsx";
 import Contact from "./Contact_Us.jsx";
-import ProductDetail from "./ProductDetail.jsx";
+import ProductDetailPage from "./ProductDetail.jsx";
 import About from "./About_US.jsx";
+import ProductInDetail from "./ProductInDetail.jsx"
 
 export default function App() {
   return (
@@ -57,7 +58,9 @@ export default function App() {
           </>
         }/>
         <Route path="/" element={<Work />} />
-        <Route path="/product/:name" element={<><ProductDetail /><Footer/></>} />
+        <Route path="/product/:name" element={<><ProductDetailPage /><Footer/></>} />
+        <Route path="/product/:name" element={<ProductDetailPage />} />
+        <Route path="/product-detail" element={<><ProductInDetail /><Footer/></>} />
       </Routes>
     </Router>
   );

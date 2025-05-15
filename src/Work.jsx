@@ -50,7 +50,7 @@ const Products = () => {
         <h1 className="title">Exclusive Gift Collections</h1>
         <p>
           Discover the perfect gift for every occasion in our carefully curated
-          collections. From executive essentials to personal comforts, <br />
+          collections. From executive essentials to personal <br /> comforts,
           we have something for everyone.
         </p>
       </div>

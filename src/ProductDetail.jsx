@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import "./Work.css";
+import WhatsAppButton from './components/WhatsAppButton';
 import RoundNeck_Blue from "./assets/roundneck_black.jpg";
 import Hoodie1 from "./assets/Hoodie1.jpg";
 import Mug1 from "./assets/Mug1.jpg";
@@ -32,119 +33,197 @@ import Labcoat1 from "./assets/Labcoat1.jpg";
 import Shirt1 from "./assets/Shirt1.jpg";
 import Apron1 from "./assets/Apron1.jpg";
 
-
 const productDetails = {
   "t-shirt": {
     name: "T-Shirts",
     description: "A stylish T-shirt for every occasion. Soft, comfortable, and made with high-quality fabric.",
-    images: [RoundNeck_Blue,RoundNeck_Blue,RoundNeck_Blue,RoundNeck_Blue,RoundNeck_Blue,RoundNeck_Blue,],
+    themes: {
+      vacation: [RoundNeck_Blue],
+      festive: [RoundNeck_Blue],
+      minimal: [RoundNeck_Blue],
+    }
   },
   hoodies: {
     name: "Hoodies",
     description: "Stay warm and fashionable with our premium hoodies, perfect for every season.",
-    images: [Hoodie1,Hoodie1,Hoodie1,Hoodie1,Hoodie1,Hoodie1],
+    themes: {
+      vacation: [Hoodie1],
+      festive: [Hoodie1],
+      minimal: [Hoodie1],
+    }
   },
   plate: {
     name: "Plate",
-    description: "Stay warm and fashionable with our premium hoodies, perfect for every season.",
-    images: [Plate1,Plate2,Plate3,Plate4,Plate5,Plate3],
+    description: "Beautiful designer plates for your dining and decor needs.",
+    themes: {
+      vacation: [Plate1, Plate2],
+      festive: [Plate3, Plate4],
+      minimal: [Plate5],
+    }
   },
   mugs: {
     name: "Mugs",
     description: "Perfect mugs for your morning coffee, with various designs to match your personality.",
-    images: [Mug1, Mug2, Mug3, Mug4, Mug5, Mug6],
+    themes: {
+      vacation: [Mug1, Mug2],
+      festive: [Mug3, Mug4],
+      minimal: [Mug5, Mug6],
+    }
   },
   leather: {
     name: "Leather Combos",
-    description: "Premium leather combos for the sophisticated you, perfect for business or casual wear.",
-    images: [Leather1,Leather1,Leather1,Leather1,Leather1,Leather1,],
+    description: "Premium leather combos for the sophisticated you.",
+    themes: {
+      vacation: [Leather1],
+      festive: [Leather1],
+      minimal: [Leather1],
+    }
   },
   pen: {
     name: "Pens",
-    description: "Elegant pens for professionals, made with fine materials and craftsmanship.",
-    images: [Pen1, Pen1, Pen1,Pen1, Pen1, Pen1], 
+    description: "Elegant pens for professionals.",
+    themes: {
+      vacation: [Pen1],
+      festive: [Pen1],
+      minimal: [Pen1],
+    }
   },
   bottle: {
     name: "Bottles",
-    description: "Stay hydrated with our premium range of stylish bottles, perfect for your daily use.",
-    images: [Bottle1, Bottle1, Bottle1,Bottle1, Bottle1, Bottle1],
+    description: "Stay hydrated with our premium range of stylish bottles.",
+    themes: {
+      vacation: [Bottle1],
+      festive: [Bottle1],
+      minimal: [Bottle1],
+    }
   },
   cap: {
     name: "Caps",
-    description: "Stylish and comfortable caps for sunny days or casual outings.",
-    images: [Cap1, Cap1, Cap1,Cap1, Cap1, Cap1],
+    description: "Stylish and comfortable caps for sunny days.",
+    themes: {
+      vacation: [Cap1],
+      festive: [Cap1],
+      minimal: [Cap1],
+    }
   },
   wallet: {
     name: "Wallets",
-    description: "Classy wallets for both men and women, designed for functionality and style.",
-    images: [Wallet1, Wallet1, Wallet1,Wallet1, Wallet1, Wallet1],
+    description: "Classy wallets for both men and women.",
+    themes: {
+      vacation: [Wallet1],
+      festive: [Wallet1],
+      minimal: [Wallet1],
+    }
   },
   "phone-stand": {
     name: "Mobile Stands",
-    description: "Convenient and sturdy mobile stands, perfect for home and office use.",
-    images: [PhoneStand1, PhoneStand1, PhoneStand1,PhoneStand1, PhoneStand1, PhoneStand1],
+    description: "Convenient and sturdy mobile stands.",
+    themes: {
+      vacation: [PhoneStand1],
+      festive: [PhoneStand1],
+      minimal: [PhoneStand1],
+    }
   },
   flaskset: {
     name: "Vacuum Flask Sets",
-    description: "Premium vacuum flask sets, designed to keep your beverages hot or cold for hours.",
-    images: [FlaskSet1, FlaskSet2, FlaskSet3,FlaskSet1, FlaskSet2, FlaskSet3,],
+    description: "Premium vacuum flask sets for hot or cold beverages.",
+    themes: {
+      vacation: [FlaskSet1],
+      festive: [FlaskSet2],
+      minimal: [FlaskSet3],
+    }
   },
   pillow: {
     name: "Pillows",
-    description: "Comfortable and supportive pillows, perfect for a restful night's sleep.",
-    images: [Pillow1, Pillow1, Pillow1,Pillow1, Pillow1, Pillow1],
+    description: "Comfortable and supportive pillows.",
+    themes: {
+      vacation: [Pillow1],
+      festive: [Pillow1],
+      minimal: [Pillow1],
+    }
   },
   tiffin: {
     name: "Tiffins",
-    description: "Practical and stylish tiffins for easy meal storage and portability.",
-    images: [Tiffin1, Tiffin1, Tiffin1,Tiffin1, Tiffin1, Tiffin1],
+    description: "Practical and stylish tiffins.",
+    themes: {
+      vacation: [Tiffin1],
+      festive: [Tiffin1],
+      minimal: [Tiffin1],
+    }
   },
   pouch: {
     name: "Pouches",
-    description: "Compact and versatile pouches for storing small items.",
-    images: [Pouch1, Pouch1, Pouch1,Pouch1, Pouch1, Pouch1],
+    description: "Compact and versatile pouches.",
+    themes: {
+      vacation: [Pouch1],
+      festive: [Pouch1],
+      minimal: [Pouch1],
+    }
   },
   cardholder: {
     name: "Card Holders",
-    description: "Sleek and secure card holders, perfect for keeping your cards organized.",
-    images: [CardHolder1, CardHolder1, CardHolder1,CardHolder1, CardHolder1, CardHolder1],
+    description: "Sleek and secure card holders.",
+    themes: {
+      vacation: [CardHolder1],
+      festive: [CardHolder1],
+      minimal: [CardHolder1],
+    }
   },
   apron: {
     name: "Aprons",
-    description: "Durable and stylish aprons, designed for comfort while cooking or working.",
-    images: [Apron1, Apron1, Apron1,Apron1, Apron1, Apron1],
+    description: "Durable and stylish aprons.",
+    themes: {
+      vacation: [Apron1],
+      festive: [Apron1],
+      minimal: [Apron1],
+    }
   },
   keychain: {
     name: "Keychains",
-    description: "Unique and customizable keychains, perfect as a personal accessory or gift.",
-    images: [Keychain1, Keychain1, Keychain1,Keychain1, Keychain1, Keychain1],
+    description: "Unique and customizable keychains.",
+    themes: {
+      vacation: [Keychain1],
+      festive: [Keychain1],
+      minimal: [Keychain1],
+    }
   },
   shirt: {
     name: "Shirts",
-    description: "Classic shirts with modern designs, suitable for both casual and formal occasions.",
-    images: [Shirt1, Shirt1, Shirt1,Shirt1, Shirt1, Shirt1],
+    description: "Classic shirts with modern designs.",
+    themes: {
+      vacation: [Shirt1],
+      festive: [Shirt1],
+      minimal: [Shirt1],
+    }
   },
   labcoat: {
     name: "Lab Coats",
-    description: "Professional lab coats designed for comfort and protection in scientific environments.",
-    images: [Labcoat1, Labcoat1, Labcoat1,Labcoat1, Labcoat1, Labcoat1],
+    description: "Professional lab coats for scientific environments.",
+    themes: {
+      vacation: [Labcoat1],
+      festive: [Labcoat1],
+      minimal: [Labcoat1],
+    }
   },
 };
 
-
-
 function ProductDetailPage() {
   const { name } = useParams();
+  const navigate = useNavigate();
   const product = productDetails[name];
+  const [selectedTheme, setSelectedTheme] = useState("vacation");
 
   if (!product) {
-    return <p>Product not found.</p>;
+    return <div className="error-message">Product not found</div>;
   }
 
-  const generateWhatsAppLink = (productName) => {
-    const phoneNumber = "9923660003";
-    const message = `Hello!%20I'm%20interested%20in%20buying%20the%20*${encodeURIComponent(productName)}*%20from%20your%20store.`;
-    return `https://wa.me/${phoneNumber}?text=${message}`;
+  const themes = Object.keys(product.themes);
+  const imagesToShow = product.themes[selectedTheme] || [];
+
+  const handleImageClick = (image) => {
+    navigate('/product-detail', { 
+      state: { product, image }
+    });
   };
 
   return (
@@ -154,13 +233,35 @@ function ProductDetailPage() {
         <p>{product.description}</p>
       </div>
 
+      <div className="theme-dropdown">
+        <label htmlFor="theme">Select Theme: </label>
+        <select
+          id="theme"
+          value={selectedTheme}
+          onChange={(e) => setSelectedTheme(e.target.value)}
+        >
+          {themes.map((theme) => (
+            <option key={theme} value={theme}>
+              {theme.charAt(0).toUpperCase() + theme.slice(1)}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="categories">
-        {product.images.map((image, index) => (
+        {imagesToShow.map((image, index) => (
           <div className="category-item" key={index}>
-            <img src={image} alt={`${product.name} ${index + 1}`} />
-            <a href={generateWhatsAppLink(product.name)} target="_blank" rel="noopener noreferrer">
-              <button className="shop-btn">Check Now</button>
-            </a>
+            <img 
+              src={image} 
+              alt={`${product.name} ${index + 1}`} 
+              onClick={() => handleImageClick(image)}
+              loading="lazy"
+            />
+            <WhatsAppButton 
+              text="Check Now"
+              productName={product.name}
+              className="shop-btn"
+            />
           </div>
         ))}
       </div>

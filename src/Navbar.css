@@ -59,6 +59,10 @@
     color: #df3138 !important;
 }
 
+.cont-fluid {
+    width:100% !important;
+}
+
 .btn {
     color: #df3138 !important;
     border-color: #df3138 !important;
@@ -169,6 +173,13 @@
         padding: 0 1rem;
         box-sizing: border-box;
         overflow-x: hidden;
+    }
+
+    .cont-fl {
+        width:100% !important;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
     }
 
     .container-fluid {

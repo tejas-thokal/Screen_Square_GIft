@@ -15,7 +15,7 @@ const products = [
   { id: 5, name: "Customize Bottle", description: "for Gift", image: Flaskset, className: "flaskset" },
   { id: 6, name: "Customize Cap", description: "for Gift", image: Cap, className: "cap" },
   { id: 8, name: "Customize Wallet", description: "for Gift", image: Wallet, className: "wallet" },
-  { id: 9, name: "Customize bottle", description: "for Gift", image: Bottle, className: "Bottle" },
+  { id: 9, name: "Customize bottle", description: "for Gift", image: Bottle, className: "Bottle-card" },
   { id: 10, name: "Customize set", description: "for Gift", image: Set, className: "Set" }
 ];
 

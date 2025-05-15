@@ -24,7 +24,7 @@ const ReviewSlider = () => {
   }, [reviews.length]);
 
   return (
-    <div className="outer flex justify-center items-center min-h-screen">
+    <div className="outer flex justify-center items-center min-h-screen ">
         <h1>What People are Saying</h1>
       <div className=" inner relative   rounded-xl shadow-lg overflow-hidden ">
         <div className=" inner2 relative">

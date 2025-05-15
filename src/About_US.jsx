@@ -6,7 +6,6 @@ export default function PortfolioCard() {
   return (
     <div className="portfolio-container">
       <div className="portfolio-card">
-        {/* Profile Image Section */}
         <div className="profile-image-wrapper">
           <div className="profile-border">
             <img
@@ -25,7 +24,6 @@ export default function PortfolioCard() {
             At Screen Square, we believe that the right gift can build lasting connections. Founded in 2019, we have been committed to helping businesses express appreciation and celebrate success through thoughtfully selected gifts.
           </h1>
 
-          <button className="about-button">About US</button>
           <p className="description">
             To elevate business relationships by providing exceptional corporate gifts that reflect your brand’s values and appreciation
           </p>
@@ -51,7 +49,7 @@ export default function PortfolioCard() {
 
           <div className="button-row">
             <button className="contact-button">Contact me →</button>
-            <button className="resume-button">Download my resume ⭳</button>
+            <button className="resume-button">Download Catlog ⭳</button>
           </div>
         </div>
       </div>
