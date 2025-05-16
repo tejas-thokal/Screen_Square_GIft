@@ -34,7 +34,7 @@ function ProductInDetail() {
               text="Enquire on WhatsApp"
               productName={product.name}
             />
-            <Link to="/product" className="back-button">
+            <Link to="/products" className="back-button">
               Back to Products
             </Link>
           </div>

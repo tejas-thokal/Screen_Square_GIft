@@ -4,6 +4,12 @@ import "./Work.css";
 import WhatsAppButton from './components/WhatsAppButton';
 import RoundNeck_Blue from "./assets/roundneck_black.jpg";
 import Hoodie1 from "./assets/Hoodie1.jpg";
+import Tshirt1 from "./assets/tshirt1.jpg";
+import Tshirt2 from "./assets/tshirt2.jpg";
+import Tshirt3 from "./assets/tshirt3.jpg";
+import Tshirt4 from "./assets/tshirt4.jpg";
+import Tshirt5 from "./assets/tshirt5.jpg";
+import Tshirt6 from "./assets/tshirt6.jpg";
 import Mug1 from "./assets/Mug1.jpg";
 import Mug2 from "./assets/Mug2.jpg";
 import Mug3 from "./assets/Mug3.jpg";
@@ -13,6 +19,16 @@ import Mug6 from "./assets/Mug7.jpg";
 import Leather1 from "./assets/leather1.jpg";
 import Pen1 from "./assets/Pen1.jpg";
 import Bottle1 from "./assets/Bottle1.jpg";
+import Steel1 from "./assets/steel1.jpg";
+import Steel2 from "./assets/steel2.jpg";
+import Steel3 from "./assets/steel3.jpg";
+import Temp1 from "./assets/Temp1.jpg";
+import Temp2 from "./assets/Temp2.jpg";
+import Temp3 from "./assets/Temp3.jpg";
+import Temp4 from "./assets/Temp4.jpg";
+import Temp5 from "./assets/Temp5.jpg";
+import Temp6 from "./assets/Temp6.jpg";
+import Temp7 from "./assets/Temp7.jpg";
 import Cap1 from "./assets/Cap1.jpg";
 import CardHolder1 from "./assets/Cardholder1.jpg";
 import Keychain1 from "./assets/Keychain1.jpg";
@@ -26,9 +42,19 @@ import Plate3 from "./assets/Plate3.jpg";
 import Plate4 from "./assets/Plate4.jpg";
 import Plate5 from "./assets/Plate5.jpg";
 import Pillow1 from "./assets/Pillow1.jpg";
+import Pillow2 from "./assets/Pillow2.jpg";
+import Pillow3 from "./assets/Pillow3.jpg";
+import Pillow4 from "./assets/Pillow4.jpg";
+import Pillow5 from "./assets/Pilow5.jpg";
 import Tiffin1 from "./assets/Tiffin1.jpg";
 import Pouch1 from "./assets/Pouch1.jpg";
 import Wallet1 from "./assets/Wallet1.jpg";
+import Wallet2 from "./assets/Wallet2.jpg";
+import Wallet3 from "./assets/Wallet3.jpg";
+import Wallet4 from "./assets/Wallet4.jpg";
+import Wallet5 from "./assets/Wallet5.jpg";
+import Wallet6 from "./assets/Wallet6.jpg";
+import Wallet7 from "./assets/Wallet7.jpg";
 import Labcoat1 from "./assets/Labcoat1.jpg";
 import Shirt1 from "./assets/Shirt1.jpg";
 import Apron1 from "./assets/Apron1.jpg";
@@ -38,7 +64,7 @@ const productDetails = {
     name: "T-Shirts",
     description: "A stylish T-shirt for every occasion. Soft, comfortable, and made with high-quality fabric.",
     themes: {
-      vacation: [RoundNeck_Blue],
+      vacation: [RoundNeck_Blue, Tshirt1,Tshirt2,Tshirt3,Tshirt4,Tshirt5,Tshirt6],
       festive: [RoundNeck_Blue],
       minimal: [RoundNeck_Blue],
     }
@@ -65,9 +91,9 @@ const productDetails = {
     name: "Mugs",
     description: "Perfect mugs for your morning coffee, with various designs to match your personality.",
     themes: {
-      vacation: [Mug1, Mug2],
-      festive: [Mug3, Mug4],
-      minimal: [Mug5, Mug6],
+      vacation: [Mug1, Mug2,Mug3,Mug4,Mug5,Mug6],
+      festive: [Mug1, Mug2,Mug3,Mug4,Mug5,Mug6],
+      minimal: [Mug1, Mug2,Mug3,Mug4,Mug5,Mug6],
     }
   },
   leather: {
@@ -92,9 +118,9 @@ const productDetails = {
     name: "Bottles",
     description: "Stay hydrated with our premium range of stylish bottles.",
     themes: {
-      vacation: [Bottle1],
-      festive: [Bottle1],
-      minimal: [Bottle1],
+      Temperature: [Temp1,Temp2,Temp3,Temp4,Temp5,Temp6,Temp7],
+      Steel: [Steel1,Steel2,Steel3],
+      Combined: [Bottle1,Steel1,Steel2,Steel3,Temp1,Temp2,Temp3,Temp4,Temp5,Temp6,Temp7],
     }
   },
   cap: {
@@ -110,9 +136,8 @@ const productDetails = {
     name: "Wallets",
     description: "Classy wallets for both men and women.",
     themes: {
-      vacation: [Wallet1],
-      festive: [Wallet1],
-      minimal: [Wallet1],
+      leather: [Wallet1,Wallet3,Wallet4,Wallet5,Wallet6,Wallet7],
+      temp:[Wallet1]
     }
   },
   "phone-stand": {
@@ -137,8 +162,8 @@ const productDetails = {
     name: "Pillows",
     description: "Comfortable and supportive pillows.",
     themes: {
-      vacation: [Pillow1],
-      festive: [Pillow1],
+      Family: [Pillow1,Pillow2,Pillow3,Pillow4,Pillow5],
+      Kids: [Pillow1,Pillow2,Pillow3,Pillow4,Pillow5],
       minimal: [Pillow1],
     }
   },

@@ -48,22 +48,24 @@ const Products = () => {
     <div className="product">
       <div className="product_title">
         <h1 className="title">Exclusive Gift Collections</h1>
-        <p>
+        {/* <p>
           Discover the perfect gift for every occasion in our carefully curated
-          collections. From executive essentials to personal <br /> comforts,
+          collections. From executive essentials to personal comforts,
           we have something for everyone.
-        </p>
+        </p> */}
       </div>
 
-      <div className="categories">
-        {products.map((product, index) => (
-          <div className="category-item" key={index}>
-            <Link to={product.link}>
-              <img src={product.image} alt={product.name} />
-              <p>{product.name}</p>
-            </Link>
-          </div>
-        ))}
+      <div className="categories-container">
+        <div className="categories">
+          {products.map((product, index) => (
+            <div className="category-item" key={index}>
+              <Link to={product.link} className="product-link">
+                <img src={product.image} alt={product.name} />
+                <p className="product-name">{product.name}</p>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

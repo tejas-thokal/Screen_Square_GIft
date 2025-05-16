@@ -23,103 +23,104 @@ const productData = {
   tshirts: {
     name: "T-Shirts",
     image: RoundNeck_Blue,
-    description: "High-quality round neck t-shirts, perfect for casual wear or printing.",
+    description: "Premium imported round neck T-shirts crafted from soft, breathable cotton — perfect for both casual wear and high-quality printing.",
   },
   hoodies: {
     name: "Hoodies",
     image: Hoodie1,
-    description: "Warm and stylish hoodies for every season.",
+    description: "Export-grade hoodies designed with plush interiors and stylish cuts, offering comfort and durability for all seasons.",
   },
   mugs: {
     name: "Mugs",
     image: Mug1,
-    description: "Customizable ceramic mugs great for gifts or office use.",
+    description: "High-gloss imported ceramic mugs, perfect for personalization — microwave and dishwasher safe, ideal for corporate gifts or personal use.",
   },
   leathercombos: {
     name: "Leather Combos",
     image: Leather1,
-    description: "Premium leather gift combos with wallets and card holders.",
+    description: "Genuine leather combos imported and curated for elegance — includes wallets, cardholders, and accessories in a premium gift box.",
   },
   pens: {
     name: "Pens",
     image: Pen1,
-    description: "Elegant pens suitable for office and promotional purposes.",
+    description: "Precision-crafted metal pens with a sleek finish — perfect for executive gifting and everyday luxury writing.",
   },
   combos: {
     name: "Combos",
     image: ComboImage,
-    description: "Exclusive gift combos curated for every occasion.",
+    description: "Thoughtfully assembled combo sets with premium items, ideal for events, corporates, or bulk gifting — quality you can trust.",
   },
   steelplates: {
     name: "PavBhaji Plates",
     image: Plate1,
-    description: "Stainless steel PavBhaji plates, ideal for restaurants and homes.",
+    description: "High-grade stainless steel PavBhaji plates with anti-rust coating — hygienic, durable, and suitable for heavy-duty use.",
   },
   caps: {
     name: "Caps",
     image: Cap1,
-    description: "Stylish caps available for custom embroidery or printing.",
+    description: "Comfort-fit caps made with imported fabrics, suitable for branding, sports, or casual wear — customizable with embroidery.",
   },
   mobilestands: {
     name: "Mobile Stands",
     image: PhoneStand1,
-    description: "Durable mobile stands for easy viewing and stability.",
+    description: "Ergonomically designed mobile stands made from premium-grade material — ideal for desks, branding, and giveaways.",
   },
   flasksets: {
     name: "Vacuum Flask Sets",
     image: FlaskSet1,
-    description: "Insulated flask sets to keep your beverages hot or cold.",
+    description: "Double-walled vacuum flask sets with imported insulation tech — keeps beverages hot/cold for hours, great for gifting.",
   },
   pillows: {
     name: "Pillows",
     image: Pillow1,
-    description: "Soft customizable pillows perfect for décor or gifts.",
+    description: "Soft, hypoallergenic pillows made with export-quality fabrics — customizable for décor, events, or personal gifting.",
   },
   tiffins: {
     name: "Tiffins",
     image: Tiffin1,
-    description: "Stylish and practical lunchboxes for everyday use.",
+    description: "Premium tiffins designed with multiple compartments and leak-proof lids — ideal for everyday office and school use.",
   },
   pouches: {
     name: "Pouches",
     image: Pouch1,
-    description: "Compact pouches ideal for travel or organization.",
+    description: "Stylish utility pouches with imported zippers and waterproof lining — perfect for travel, makeup, or stationery.",
   },
   cardholders: {
     name: "Card Holders",
     image: CardHolder1,
-    description: "Sleek card holders made of leather or metal.",
+    description: "Executive card holders made of genuine leather and alloy — compact, sleek, and perfect for professionals.",
   },
   aprons: {
     name: "Aprons",
     image: Apron1,
-    description: "Durable aprons for kitchen or workshop use.",
+    description: "Heavy-duty aprons made from stain-resistant fabric — ideal for chefs, workshop use, or corporate branding.",
   },
   keychains: {
     name: "Keychains",
     image: Keychain1,
-    description: "Custom keychains in metal, wood, and more.",
+    description: "Metal and wooden keychains with fine finishing — customizable for events, corporates, and bulk orders.",
   },
   shirts: {
     name: "Shirts",
     image: Shirt1,
-    description: "Premium formal and casual shirts available.",
+    description: "Tailored formal and casual shirts made from imported cotton blends — excellent for branding or personal wear.",
   },
   labcoats: {
     name: "Lab Coats",
     image: Labcoat1,
-    description: "Professional lab coats suitable for medical or industrial use.",
+    description: "Professional-grade lab coats stitched with precision — breathable and durable, ideal for healthcare or labs.",
   },
   wallets: {
     name: "Wallets",
     image: Wallet1,
-    description: "Elegant leather wallets perfect for gifting.",
+    description: "Finely stitched leather wallets using genuine imported material — elegant and long-lasting, perfect for gifting.",
   },
   bottles: {
     name: "Bottles",
     image: Bottle1,
-    description: "Reusable water bottles with customizable printing.",
+    description: "Reusable water bottles made with food-grade materials — customizable and eco-friendly, perfect for corporate branding.",
   },
 };
+
 
 export default productData;

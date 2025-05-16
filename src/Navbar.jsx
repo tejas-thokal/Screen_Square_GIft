@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
 import { useState } from "react"; // Import React's useState hook
 import "./Navbar.css"; // Ensure it has styles for both navbar and sidebar
@@ -6,10 +6,23 @@ import "./Sidebar.css"; // Optional: if you had sidebar styles separate
 
 export default function NavbarWithSidebar() {
     const [isNavOpen, setIsNavOpen] = useState(false); // Track the navbar state
+    const [searchQuery, setSearchQuery] = useState(''); // Track search input
+    const navigate = useNavigate();
 
     // Toggle the navbar on and off
     const handleNavbarToggle = () => {
         setIsNavOpen(!isNavOpen); // Toggle the navbar state
+    };
+
+    // Handle search submission
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            // Convert search query to lowercase and remove spaces for URL
+            const formattedQuery = searchQuery.toLowerCase().trim().replace(/\s+/g, '-');
+            navigate(`/product/${formattedQuery}`);
+            setSearchQuery(''); // Clear the search input after submission
+        }
     };
 
     return (
@@ -30,17 +43,17 @@ export default function NavbarWithSidebar() {
 
             <nav className="navbar navbar-expand-lg bg-body-tertiary w-100">
                 <div className="container-fluid ">
-                        <Link className="navbar-brand" to="/">
+                    <Link className="navbar-brand" to="/">
                         <img src={logo} alt="Screen Square" className="navbar-logo"/>
                     </Link>
 
                     <button
                         className="navbar-toggler"
                         type="button"
-                        onClick={handleNavbarToggle} // Handle click manually
-                        aria-expanded={isNavOpen ? "true" : "false"} // Update aria-expanded based on state
+                        onClick={handleNavbarToggle}
+                        aria-expanded={isNavOpen ? "true" : "false"}
                     >
-                        <span className="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon" style={{ filter: 'brightness(0) invert(1)' }}></span>
                     </button>
 
                     {/* COLLAPSIBLE CONTENT */}
@@ -59,8 +72,15 @@ export default function NavbarWithSidebar() {
                                 <Link className="nav-link" to="/contact">Contact Us</Link>
                             </li>
                         </ul>
-                        <form className="d-flex rside" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search..." aria-label="Search" />
+                        <form className="d-flex rside" role="search" onSubmit={handleSearch}>
+                            <input 
+                                className="form-control me-2" 
+                                type="search" 
+                                placeholder="Search products..." 
+                                aria-label="Search"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </div>

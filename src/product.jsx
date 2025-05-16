@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import "./product.css";
 import tshirt from "./assets/combine.png";
 import Mug from "./assets/mug4.png";
@@ -7,6 +8,7 @@ import Cap from "./assets/cap.png";
 import Wallet from "./assets/wallet.png";
 import Bottle from "./assets/bottle.png";
 import Set from "./assets/set.png";
+import WhatsAppButton from './components/WhatsAppButton';
 
 const products = [
   { id: 1, name: "Customize Tshirts", description: "for Gift", image: tshirt, className: "tshirt special-card" },
@@ -20,18 +22,59 @@ const products = [
 ];
 
 export default function Product() {
+  const gridRef = useRef(null);
+  const productRefs = useRef([]);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add animation class when element comes into view
+          entry.target.classList.add('animate');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    // Observe the grid container
+    if (gridRef.current) {
+      observer.observe(gridRef.current);
+    }
+
+    // Observe each product card
+    productRefs.current.forEach(ref => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   // WhatsApp link generation function
   const generateWhatsAppLink = (productName) => {
-    const phoneNumber = "9923660003"; // Your WhatsApp phone number
+    const phoneNumber = "9923660003";
     const message = `Hello!%20I'm%20interested%20in%20buying%20the%20*${encodeURIComponent(productName)}*%20from%20your%20store.`;
     return `https://wa.me/${phoneNumber}?text=${message}`;
   };
 
   return (
-    <div className="product-grid">
-      {products.map(product => (
-        <div key={product.id} className={`product-card ${product.className}`}>
+    <div className="product-grid" ref={gridRef}>
+      {products.map((product, index) => (
+        <div
+          key={product.id}
+          className={`product-card ${product.className}`}
+          ref={el => productRefs.current[index] = el}
+        >
           <div className="right">
             <img src={product.image} alt={product.name} />
           </div>
