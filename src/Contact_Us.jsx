@@ -1,7 +1,52 @@
-import React from "react";
-import "./Contact_US.css"; // Assuming the CSS below is saved here
+import React, { useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
+import "./Contact_US.css";
 
 export default function Contact() {
+  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ message: '', isError: false });
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ message: '', isError: false });
+
+    // Get form values
+    const formData = new FormData(form.current);
+    const templateParams = {
+      user_name: formData.get('user_name'),
+      user_email: formData.get('user_email'),
+      subject: formData.get('subject'),
+      message: `From: ${formData.get('user_email')}\n\nName: ${formData.get('user_name')}\n\nMessage:\n${formData.get('message')}`,
+    };
+
+    // EmailJS configuration with actual credentials
+    emailjs.send(
+      'service_s10m5hr',
+      'template_bxcvdpd',
+      templateParams,
+      'PGEHCNHEmkPNpVdXp'
+    )
+      .then((result) => {
+        setSubmitStatus({ 
+          message: 'Thank you for your message! We will get back to you soon.', 
+          isError: false 
+        });
+        form.current.reset();
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        setSubmitStatus({ 
+          message: 'Failed to send message. Please try again or contact us directly at tejasthokal2305@gmail.com', 
+          isError: true 
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
+
   return (
     <div className="contact-container">
       <div className="cards">
@@ -36,13 +81,76 @@ export default function Contact() {
         <div className="card">
           <div className="e-mail">
             <h3>Mail Us</h3>
-            <p>info@screensquaregifts.com</p>
+            <p>tejasthokal2305@gmail.com</p>
           </div>
           <button>
             <i className="fas fa-envelope"></i>
-            <a href="mailto:info@screensquaregifts.com">Mail Us</a>
+            <a href="mailto:tejasthokal2305@gmail.com">Mail Us</a>
           </button>
         </div>
+      </div>
+
+      <div className="contact-form-container">
+        <h2>Send us a Message</h2>
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <div className="form-group">
+            <label htmlFor="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="user_name"
+              required
+              placeholder="Enter your name"
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="email">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              name="user_email"
+              required
+              placeholder="Enter your email"
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              placeholder="Enter subject"
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Enter your message"
+              rows="5"
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            className="submit-button" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+
+          {submitStatus.message && (
+            <div className={`status-message ${submitStatus.isError ? 'error' : 'success'}`}>
+              {submitStatus.message}
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );

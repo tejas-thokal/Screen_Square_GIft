@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import logo from "./assets/logo.png";
+import logo from "./converted/logo.webp";
 import { useState } from "react"; // Import React's useState hook
 import "./Navbar.css"; // Ensure it has styles for both navbar and sidebar
 import "./Sidebar.css"; // Optional: if you had sidebar styles separate
@@ -35,7 +35,6 @@ export default function NavbarWithSidebar() {
                 <Link to="/product/bottle" className="sidebar-icon"><i className="fas fa-wine-bottle"></i></Link>
                 <Link to="/product/pen" className="sidebar-icon"><i className="fas fa-pen"></i></Link>
                 <Link to="/product/plate" className="sidebar-icon"><i className="fas fa-utensils"></i></Link>
-                <Link to="/product/book" className="sidebar-icon"><i className="fas fa-book"></i></Link>
                 <Link to="/product/cap" className="sidebar-icon"><i className="fas fa-hat-cowboy"></i></Link>
                 <Link to="/product/keychain" className="sidebar-icon"><i className="fas fa-key"></i></Link>
                 <Link to="/product/wallet" className="sidebar-icon"><i className="fas fa-wallet"></i></Link>

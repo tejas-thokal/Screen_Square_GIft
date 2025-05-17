@@ -1,5 +1,7 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import product from "./converted/product.webp";
 import "./Sidebar.css";
-import product from "./assets/product.png"
 
 export default function Sidebar() {
   return (

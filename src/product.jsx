@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 import "./product.css";
-import tshirt from "./assets/combine.png";
-import Mug from "./assets/mug4.png";
-import Hoodie from "./assets/hoodie.png";
-import Flaskset from "./assets/flaskset.png";
-import Cap from "./assets/cap.png";
-import Wallet from "./assets/wallet.png";
-import Bottle from "./assets/bottle.png";
-import Set from "./assets/set.png";
+import tshirt from "./converted/combine.webp";
+import Mug from "./converted/mug4.webp";
+import Hoodie from "./converted/hoodie.webp";
+import Flaskset from "./converted/flaskset.webp";
+import Cap from "./converted/cap.webp";
+import Wallet from "./converted/wallet.webp";
+import Bottle from "./converted/bottle.webp";
+import Set from "./converted/set.webp";
 import WhatsAppButton from './components/WhatsAppButton';
 
 const products = [

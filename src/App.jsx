@@ -15,12 +15,12 @@ import ProductInDetail from "./ProductInDetail.jsx"
 export default function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route
           path="/"
           element={
             <>
+              <Navbar />
               <Sidebar />
               <Product/>
               <Skills />
@@ -40,27 +40,45 @@ export default function App() {
           }
         />
         <Route
-        path="/contact"
-        element={
-          <>
-          <Navbar/>
-          <Contact/>
-          <Footer/>
-          </>
-        }/>
+          path="/contact"
+          element={
+            <>
+              <Navbar/>
+              <Contact/>
+              <Footer/>
+            </>
+          }
+        />
         <Route
-        path="/about"
-        element={
-          <>
-          <Navbar/>
-          <About/>
-          <Footer/>
-          </>
-        }/>
-        <Route path="/" element={<Work />} />
-        <Route path="/product/:name" element={<><ProductDetailPage /><Footer/></>} />
-        <Route path="/product/:name" element={<ProductDetailPage />} />
-        <Route path="/product-detail" element={<><ProductInDetail /><Footer/></>} />
+          path="/about"
+          element={
+            <>
+              <Navbar/>
+              <About/>
+              <Footer/>
+            </>
+          }
+        />
+        <Route 
+          path="/product/:name" 
+          element={
+            <>
+              <Navbar />
+              <ProductDetailPage />
+              <Footer/>
+            </>
+          } 
+        />
+        <Route 
+          path="/product-detail" 
+          element={
+            <>
+              <Navbar />
+              <ProductInDetail />
+              <Footer/>
+            </>
+          } 
+        />
       </Routes>
     </Router>
   );

@@ -1,4 +1,4 @@
-import product from "./assets/product.png"
+import product from "./converted/product.webp"
 export default function Home(){
     return (
         <>

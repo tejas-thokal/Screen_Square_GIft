@@ -1,6 +1,6 @@
 import React from "react";
 import "./About_US.css";
-import Bhumika from "./assets/Bhumika.jpg"
+import Bhumika from "./converted/Bhumika.webp";
 
 export default function PortfolioCard() {
   return (
@@ -25,7 +25,7 @@ export default function PortfolioCard() {
           </h1>
 
           <p className="description">
-            To elevate business relationships by providing exceptional corporate gifts that reflect your brand’s values and appreciation
+            To elevate business relationships by providing exceptional corporate gifts that reflect your brand's values and appreciation
           </p>
 
           <div className="info-box">

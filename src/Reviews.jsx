@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Reviews.css";
-import Review1 from "./assets/review1.jpg";
-import Review2 from "./assets/review2.jpg";
-import Review3 from "./assets/review3.jpg";
-import Review4 from "./assets/review4.jpg";
+import Review1 from "./converted/review1.webp";
+import Review2 from "./converted/review2.webp";
+import Review3 from "./converted/review3.webp";
+import Review4 from "./converted/review4.webp";
 
 const ReviewSlider = () => {
   const reviews = [

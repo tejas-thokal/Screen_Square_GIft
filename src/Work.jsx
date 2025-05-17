@@ -1,31 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Work.css";
-import RoundNeck_Blue from "./assets/roundneck_black.jpg";
-import Hoodie1 from "./assets/Hoodie1.jpg";
-import Mug1 from "./assets/Mug1.jpg";
-import Leather1 from "./assets/leather1.jpg";
-import Pen1 from "./assets/Pen1.jpg";
-import Bottle1 from "./assets/Bottle1.jpg";
-import Cap1 from "./assets/Cap1.jpg";
-import CardHolder1 from "./assets/Cardholder1.jpg";
-import Keychain1 from "./assets/Keychain1.jpg";
-import PhoneStand1 from "./assets/PhoneStand1.jpg";
-import FlaskSet1 from "./assets/FlaskSet1.jpg";
-import Plate1 from "./assets/Plate1.jpg";
-import Pillow1 from "./assets/Pillow1.jpg";
-import Tiffin1 from "./assets/Tiffin1.jpg";
-import Pouch1 from "./assets/Pouch1.jpg";
-import Wallet1 from "./assets/Wallet1.jpg";
-import Labcoat1 from "./assets/Labcoat1.jpg";
-import Shirt1 from "./assets/Shirt1.jpg";
-import Apron1 from "./assets/Apron1.jpg";
+import RoundNeck_Blue from "./converted/roundneck_black.webp";
+import Hoodie1 from "./converted/Hoodie1.webp";
+import Mug1 from "./converted/Mug1.webp";
+import Leather1 from "./converted/leather1.webp";
+import Pen1 from "./converted/Pen1.webp";
+import Bottle1 from "./converted/Bottle1.webp";
+import Cap1 from "./converted/Cap1.webp";
+import CardHolder1 from "./converted/Cardholder1.webp";
+import Keychain1 from "./converted/Keychain1.webp";
+import PhoneStand1 from "./converted/PhoneStand1.webp";
+import FlaskSet1 from "./converted/FlaskSet1.webp";
+import Plate1 from "./converted/Plate1.webp";
+import Pillow1 from "./converted/Pillow1.webp";
+import Tiffin1 from "./converted/Tiffin1.webp";
+import Pouch1 from "./converted/Pouch1.webp";
+import Wallet1 from "./converted/Wallet1.webp";
+import Labcoat1 from "./converted/Labcoat1.webp";
+import Shirt1 from "./converted/Shirt1.webp";
+import Apron1 from "./converted/Apron1.webp";
+import LeatherCombo1 from "./converted/LeatherCombo1.webp";
 
 const products = [
   { image: RoundNeck_Blue, name: "T-Shirts", link: "/product/t-shirt" },
   { image: Hoodie1, name: "Hoodies", link: "/product/hoodies" },
   { image: Mug1, name: "Mugs", link: "/product/mugs" },
-  { image: Leather1, name: "Leather Combos", link: "/product/leather" },
+  { image: Leather1, name: "Combos", link: "/product/combo" },
   { image: Pen1, name: "Pens", link: "/product/pen" },
   { image: Bottle1, name: "Bottles", link: "/product/bottle" },
   { image: Cap1, name: "Caps", link: "/product/cap" },
@@ -41,6 +42,7 @@ const products = [
   { image: Labcoat1, name: "Lab Coats", link: "/product/labcoat" },
   { image: Wallet1, name: "Wallets", link: "/product/wallet" },
   { image: Plate1, name: "Plates", link: "/product/plate" },
+  { image: LeatherCombo1, name: "Leather Combo", link: "/product/leather" },
 ];
 
 const Products = () => {
