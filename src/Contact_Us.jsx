@@ -15,18 +15,26 @@ export default function Contact() {
     // Get form values
     const formData = new FormData(form.current);
     const templateParams = {
+      to_email: 'screensquare2019@gmail.com',
       user_name: formData.get('user_name'),
       user_email: formData.get('user_email'),
       subject: formData.get('subject'),
-      message: `From: ${formData.get('user_email')}\n\nName: ${formData.get('user_name')}\n\nMessage:\n${formData.get('message')}`,
+      message: `
+Name: ${formData.get('user_name')}
+Email: ${formData.get('user_email')}
+Subject: ${formData.get('subject')}
+
+Message:
+${formData.get('message')}
+      `,
     };
 
     // EmailJS configuration with actual credentials
     emailjs.send(
-      'service_s10m5hr',
-      'template_bxcvdpd',
+      'service_q80ng0j',
+      'template_aqbvpms',
       templateParams,
-      'PGEHCNHEmkPNpVdXp'
+      '4qn7uvH6DRFBrsw_h'
     )
       .then((result) => {
         setSubmitStatus({ 
@@ -38,7 +46,7 @@ export default function Contact() {
       .catch((error) => {
         console.error('EmailJS Error:', error);
         setSubmitStatus({ 
-          message: 'Failed to send message. Please try again or contact us directly at tejasthokal2305@gmail.com', 
+          message: 'Failed to send message. Please try again or contact us directly at screensquare2019@gmail.com', 
           isError: true 
         });
       })
@@ -81,11 +89,11 @@ export default function Contact() {
         <div className="card">
           <div className="e-mail">
             <h3>Mail Us</h3>
-            <p>tejasthokal2305@gmail.com</p>
+            <p>screensquare2019@gmail.com</p>
           </div>
           <button>
             <i className="fas fa-envelope"></i>
-            <a href="mailto:tejasthokal2305@gmail.com">Mail Us</a>
+            <a href="mailto:screensquare2019@gmail.com">Mail Us</a>
           </button>
         </div>
       </div>

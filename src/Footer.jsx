@@ -25,7 +25,7 @@ export default function Footer() {
                         </div>
                         <div className="col-md-3 mb-4">
                             <h5>Contact</h5>
-                            <p>Email: info@screensquaregifts.com <br />Phone: +91 9923660003</p>
+                            <p>Email: screensquare2019@gmail.com <br />Phone: +91 9923660003</p>
                         </div>
                     </div>
                 </div>

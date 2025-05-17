@@ -35,15 +35,15 @@ export default function PortfolioCard() {
             </div>
             <div>
               <div className="label">Phone:</div>
-              <div>+91 9923660003</div>
+              <div><a href="tel:+919923660003" style={{ color: 'inherit', textDecoration: 'none' }}>+91 9923660003</a></div>
             </div>
             <div>
               <div className="label">Email:</div>
-              <div>info@screensquaregifts.com</div>
+              <div><a href="mailto:screensquare2019@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>screensquare2019@gmail.com</a></div>
             </div>
             <div>
-              <div className="label">Twitter:</div>
-              <div>@Sairakarim001</div>
+              <div className="label">Facebook:</div>
+              <div>@Screen_Square</div>
             </div>
           </div>
 
