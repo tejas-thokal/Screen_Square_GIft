@@ -11,14 +11,14 @@ import Bottle from "./converted/bottle.webp";
 import Set from "./converted/set.webp";
 
 const products = [
-  { id: 1, name: "Customize Tshirts", description: "for Gift", image: tshirt, className: "tshirt special-card", link: "t-shirt" },
-  { id: 2, name: "Customize Mug", description: "for Gift", image: Mug, className: "mug mug-card", link: "mugs" },
-  { id: 3, name: "Customize Hoodies", description: "for Gift", image: Hoodie, className: "hoodie", link: "hoodies" },
-  { id: 5, name: "Customize Bottle", description: "for Gift", image: Flaskset, className: "flaskset", link: "bottle" },
-  { id: 6, name: "Customize Cap", description: "for Gift", image: Cap, className: "cap", link: "cap" },
-  { id: 8, name: "Customize Wallet", description: "for Gift", image: Wallet, className: "wallet", link: "wallet" },
-  { id: 9, name: "Customize bottle", description: "for Gift", image: Bottle, className: "Bottle-card", link: "bottle" },
-  { id: 10, name: "Customize set", description: "for Gift", image: Set, className: "Set", link: "combo" }
+  { id: "t-shirt", name: "Customize Tshirts", description: "for Gift", image: tshirt, className: "tshirt special-card" },
+  { id: "mugs", name: "Customize Mug", description: "for Gift", image: Mug, className: "mug mug-card" },
+  { id: "hoodies", name: "Customize Hoodies", description: "for Gift", image: Hoodie, className: "hoodie" },
+  { id: "flaskset", name: "Customize Bottle", description: "for Gift", image: Flaskset, className: "flaskset" },
+  { id: "cap", name: "Customize Cap", description: "for Gift", image: Cap, className: "cap" },
+  { id: "wallet", name: "Customize Wallet", description: "for Gift", image: Wallet, className: "wallet" },
+  { id: "bottle", name: "Customize bottle", description: "for Gift", image: Bottle, className: "Bottle-card" },
+  { id: "combo", name: "Customize set", description: "for Gift", image: Set, className: "Set" }
 ];
 
 export default function Product() {
@@ -43,7 +43,6 @@ export default function Product() {
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
-
     // Observe the grid container
     if (gridRef.current) {
       observer.observe(gridRef.current);
@@ -61,8 +60,8 @@ export default function Product() {
     };
   }, []);
 
-  const handleProductClick = (product) => {
-    navigate(`/product/${product.link}`);
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
   };
 
   return (
@@ -72,7 +71,7 @@ export default function Product() {
           key={product.id}
           className={`product-card ${product.className}`}
           ref={el => productRefs.current[index] = el}
-          onClick={() => handleProductClick(product)}
+          onClick={() => handleProductClick(product.id)}
           style={{ cursor: 'pointer' }}
         >
           <div className="right">
@@ -85,7 +84,7 @@ export default function Product() {
               className="shop-btn"
               onClick={(e) => {
                 e.stopPropagation();
-                handleProductClick(product);
+                handleProductClick(product.id);
               }}
             >
               Check Now

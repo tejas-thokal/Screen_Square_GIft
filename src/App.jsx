@@ -1,16 +1,31 @@
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
-import Sidebar from "./Sidebar.jsx";
-import Home from "./Home_temp.jsx";
-import Product from "./product.jsx";
 import Footer from "./Footer.jsx";
-import Skills from "./Skills.jsx";
-import ReviewSlider from "./Reviews.jsx";
-import Work from "./Work.jsx";
-import Contact from "./Contact_Us.jsx";
-import ProductDetailPage from "./ProductDetail.jsx";
-import About from "./About_US.jsx";
-import ProductInDetail from "./ProductInDetail.jsx"
+
+// Lazy load all other components
+const Sidebar = React.lazy(() => import("./Sidebar.jsx"));
+const Home = React.lazy(() => import("./Home_temp.jsx"));
+const Product = React.lazy(() => import("./product.jsx"));
+const Skills = React.lazy(() => import("./Skills.jsx"));
+const ReviewSlider = React.lazy(() => import("./Reviews.jsx"));
+const Work = React.lazy(() => import("./Work.jsx"));
+const Contact = React.lazy(() => import("./Contact_Us.jsx"));
+const ProductDetailPage = React.lazy(() => import("./ProductDetail.jsx"));
+const About = React.lazy(() => import("./About_US.jsx"));
+const ProductInDetail = React.lazy(() => import("./ProductInDetail.jsx"));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh' 
+  }}>
+    Loading...
+  </div>
+);
 
 export default function App() {
   return (
@@ -21,10 +36,12 @@ export default function App() {
           element={
             <>
               <Navbar />
-              <Sidebar />
-              <Product/>
-              <Skills />
-              <ReviewSlider />
+              <Suspense fallback={<LoadingFallback />}>
+                <Sidebar />
+                <Product/>
+                <Skills />
+                <ReviewSlider />
+              </Suspense>
               <Footer />
             </>
           }
@@ -34,7 +51,9 @@ export default function App() {
           element={
             <>
               <Navbar/>
-              <Work />
+              <Suspense fallback={<LoadingFallback />}>
+                <Work />
+              </Suspense>
               <Footer />
             </>
           }
@@ -44,7 +63,9 @@ export default function App() {
           element={
             <>
               <Navbar/>
-              <Contact/>
+              <Suspense fallback={<LoadingFallback />}>
+                <Contact/>
+              </Suspense>
               <Footer/>
             </>
           }
@@ -54,7 +75,9 @@ export default function App() {
           element={
             <>
               <Navbar/>
-              <About/>
+              <Suspense fallback={<LoadingFallback />}>
+                <About/>
+              </Suspense>
               <Footer/>
             </>
           }
@@ -64,7 +87,9 @@ export default function App() {
           element={
             <>
               <Navbar />
-              <ProductDetailPage />
+              <Suspense fallback={<LoadingFallback />}>
+                <ProductDetailPage />
+              </Suspense>
               <Footer/>
             </>
           } 
@@ -74,7 +99,9 @@ export default function App() {
           element={
             <>
               <Navbar />
-              <ProductInDetail />
+              <Suspense fallback={<LoadingFallback />}>
+                <ProductInDetail />
+              </Suspense>
               <Footer/>
             </>
           } 

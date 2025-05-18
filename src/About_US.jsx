@@ -43,7 +43,7 @@ export default function PortfolioCard() {
             </div>
             <div>
               <div className="label">Facebook:</div>
-              <div>@Screen_Square</div>
+              <div>@Screen Square</div>
             </div>
           </div>
 

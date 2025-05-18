@@ -95,7 +95,16 @@
 }
 
 .product-card.mug-card .left h1{
-    font-size: 1.5em;
+    font-size: 1.8em;
+}
+
+.product-card.mug-card .left p {
+    font-size: 1.2em;
+}
+
+.product-card.mug-card .shop-btn {
+    font-size: 1rem;
+    padding: 0.7em 1.5em;
 }
 
 .product-card.mug-card img{
@@ -107,25 +116,24 @@
 }
 
 .product-card:not(.special-card):not(.mug-card) h1 {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
 }
 
-
-
 .product-card:not(.special-card) h1 {
-  font-size: 1rem; /* smaller heading */
+  font-size: 1.8rem; /* match tshirt heading */
   margin: 0;
 }
 
 .product-card:not(.special-card) p {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
 .product-card:not(.special-card) .shop-btn {
-  font-size: 0.85rem;
-  padding: 8px 16px;
+  font-size: 1rem;
+  padding: 0.7em 1.5em;
 }
+
 /* Uneven grid scaling classes */
 .tshirt {
   grid-column: span 2; /* Make tshirt span 2 columns */
@@ -172,7 +180,6 @@
   filter: drop-shadow(0 0 15px rgba(247, 248, 248, 0.7));
   transform: scale(1.1) rotate(3deg);
 }
-
 
 .left {
   display: flex;
@@ -308,12 +315,21 @@
     animation: fadeInUp 0.6s ease-out forwards;
   }
 
+  .left h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.5em;
+  }
+
+  .left p {
+    font-size: 1.2rem !important;
+    margin-bottom: 1em;
+  }
+
   .shop-btn {
-    width: 125% !important;
+    width: 100% !important;
     margin: 1em auto;
-    font-size: 1em;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease-out 0.4s forwards;
+    font-size: 1rem !important;
+    padding: 0.7em 1.5em !important;
   }
 
   /* Ensure all images scale nicely */
@@ -342,6 +358,21 @@
 
   .product-card:hover {
     transform: translateY(-5px);
+  }
+}
+
+/* Small screen adjustments */
+@media only screen and (max-width: 480px) {
+  .left h1 {
+    font-size: 1.6rem !important;
+  }
+
+  .left p {
+    font-size: 1.1rem !important;
+  }
+
+  .shop-btn {
+    font-size: 0.95rem !important;
   }
 }
 

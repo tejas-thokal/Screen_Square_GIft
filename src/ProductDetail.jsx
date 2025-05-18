@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import "./Work.css";
 import WhatsAppButton from './components/WhatsAppButton';
@@ -89,6 +89,8 @@ import PouchLeather2 from "./converted/PouchLeather2.webp";
 import PouchLeather3 from "./converted/PouchLeather3.webp";
 import PouchLeather4 from "./converted/PouchLeather4.webp";
 import PouchLeather5 from "./converted/PouchLeather5.webp";
+import Pouch2 from "./converted/pouch2.webp";
+import Pouch3 from "./converted/pouch3.webp";
 import Wallet1 from "./converted/Wallet1.webp";
 import Wallet2 from "./converted/wallet2.webp";
 import Wallet3 from "./converted/wallet3.webp";
@@ -118,9 +120,7 @@ const productDetails = {
     name: "T-Shirts",
     description: "A stylish T-shirt for every occasion. Soft, comfortable, and made with high-quality fabric.",
     themes: {
-      vacation: [RoundNeck_Blue, Tshirt1,Tshirt2,Tshirt3,Tshirt4,Tshirt5,Tshirt6],
-      festive: [RoundNeck_Blue],
-      minimal: [RoundNeck_Blue],
+      vacation: [RoundNeck_Blue, Tshirt1,Tshirt2,Tshirt3,Tshirt4,Tshirt5,Tshirt6]
     }
   },
   hoodies: {
@@ -141,9 +141,7 @@ const productDetails = {
     name: "Mugs",
     description: "Perfect mugs for your morning coffee, with various designs to match your personality.",
     themes: {
-      vacation: [Mug1, Mug2,Mug3,Mug4,Mug5,Mug6],
-      festive: [Mug1, Mug2,Mug3,Mug4,Mug5,Mug6],
-      minimal: [Mug1, Mug2,Mug3,Mug4,Mug5,Mug6],
+      vacation: [Mug1, Mug2,Mug3,Mug4,Mug5]
     }
   },
   leather: {
@@ -157,14 +155,14 @@ const productDetails = {
     name: "Pens",
     description: "Elegant pens for professionals.",
     themes: {
-      vacation: [Pen1, Pen2, Pen3, Pen4, Pen5]
+      vacation: [Pen1,Pen3, Pen4, Pen5]
     }
   },
   bottle: {
     name: "Bottles",
     description: "Stay hydrated with our premium range of stylish bottles.",
     themes: {
-      Temperature: [Temp1,Temp2,Temp3,Temp4,Temp5,Temp6,Temp7],
+      Temperature: [Temp2,Temp3,Temp4,Temp5,Temp6,Temp7],
       Steel: [Steel1,Steel2,Steel3],
       Combined: [Bottle1,Steel1,Steel2,Steel3,Temp1,Temp2,Temp3,Temp4,Temp5,Temp6,Temp7],
     }
@@ -180,8 +178,7 @@ const productDetails = {
     name: "Wallets",
     description: "Classy wallets for both men and women.",
     themes: {
-      leather: [Wallet1,Wallet3,Wallet4,Wallet5,Wallet6,Wallet7],
-      temp:[Wallet1]
+      leather: [Wallet1,Wallet3,Wallet4,Wallet5,Wallet6,Wallet7]
     }
   },
   "phone-stand": {
@@ -202,9 +199,7 @@ const productDetails = {
     name: "Pillows",
     description: "Comfortable and supportive pillows.",
     themes: {
-      Family: [Pillow1,Pillow2,Pillow3,Pillow4,Pillow5],
-      Kids: [Pillow1,Pillow2,Pillow3,Pillow4,Pillow5],
-      minimal: [Pillow1],
+      Family: [Pillow1,Pillow2,Pillow3,Pillow4,Pillow5]
     }
   },
   tiffin: {
@@ -225,7 +220,7 @@ const productDetails = {
     name: "Pouches",
     description: "Compact and versatile pouches.",
     themes: {
-      Leather: [PouchLether1, PouchLeather2, PouchLeather3, PouchLeather4, PouchLeather5]
+      Leather: [PouchLether1, PouchLeather2, PouchLeather3, PouchLeather4, PouchLeather5, Pouch2, Pouch3]
     }
   },
   cardholder: {
@@ -233,8 +228,6 @@ const productDetails = {
     description: "Sleek and secure card holders, perfect for organizing your business and credit cards with style.",
     themes: {
       vacation: [CardHolder1, CardHolder2, CardHolder3, CardHolder4],
-      festive: [CardHolder1, CardHolder2, CardHolder3, CardHolder4],
-      minimal: [CardHolder1, CardHolder2, CardHolder3, CardHolder4],
     }
   },
   apron: {
@@ -271,31 +264,52 @@ const productDetails = {
 function ProductDetailPage() {
   const { name } = useParams();
   const navigate = useNavigate();
-  const product = productDetails[name];
   const [selectedTheme, setSelectedTheme] = useState();
+
+  const product = useMemo(() => productDetails[name], [name]);
+  const themes = useMemo(() => product ? Object.keys(product.themes) : [], [product]);
+  const imagesToShow = useMemo(() => 
+    selectedTheme && product ? product.themes[selectedTheme] : [],
+    [selectedTheme, product]
+  );
+
+  const handleImageClick = useCallback((image) => {
+    navigate('/product-detail', { 
+      state: { 
+        product: {
+          name: product?.name,
+          description: product?.description
+        },
+        image: image
+      } 
+    });
+  }, [navigate, product]);
+
+  const handleThemeChange = useCallback((e) => {
+    setSelectedTheme(e.target.value);
+  }, []);
 
   if (!product) {
     return <div className="error-message">Product not found</div>;
   }
 
-  const themes = Object.keys(product.themes);
-  
   // Set initial theme if not set
   if (!selectedTheme && themes.length > 0) {
     setSelectedTheme(themes[0]);
   }
 
-  const imagesToShow = selectedTheme ? product.themes[selectedTheme] : [];
-
-  const handleImageClick = (image) => {
-    navigate('/product-detail', { 
-      state: { 
-        image,
-        productName: product.name,
-        description: product.description
-      } 
-    });
-  };
+  const ProductImage = React.memo(({ image, index }) => (
+    <div className="category-item">
+      <img 
+        src={image} 
+        alt={`${product.name} ${index + 1}`} 
+        onClick={() => handleImageClick(image)}
+        loading="lazy"
+        width="300"
+        height="300"
+      />
+    </div>
+  ));
 
   return (
     <div className="product">
@@ -310,7 +324,7 @@ function ProductDetailPage() {
           <select
             id="theme"
             value={selectedTheme || ''}
-            onChange={(e) => setSelectedTheme(e.target.value)}
+            onChange={handleThemeChange}
           >
             {themes.map((theme) => (
               <option key={theme} value={theme}>
@@ -323,18 +337,15 @@ function ProductDetailPage() {
 
       <div className="categories">
         {imagesToShow.map((image, index) => (
-          <div className="category-item" key={index}>
-            <img 
-              src={image} 
-              alt={`${product.name} ${index + 1}`} 
-              onClick={() => handleImageClick(image)}
-              loading="lazy"
-            />
-          </div>
+          <ProductImage 
+            key={`${image}-${index}`}
+            image={image} 
+            index={index}
+          />
         ))}
       </div>
     </div>
   );
 }
 
-export default ProductDetailPage;
+export default React.memo(ProductDetailPage);
